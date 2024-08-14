@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị đầu ra</title>
+</head>
+<body>
+<div id="messageDiv"></div>
+<script>
+   let diem = parseFloat(prompt("Nhập điểm :"));
+   let xeploai;
+   if (diem >= 75){
+       xeploai = "Loại A";
+   } else if (diem > 60){
+       xeploai = "Loại B";
+   } else if (diem >= 45){
+       xeploai = "Loại C";
+   } else if (diem >= 35){
+       xeploai = "Loại D";
+   } else {
+       xeploai = "Loại E"
+   }
+   alert("Xếp Loại: "+ xeploai)
+</script>
+</body>
+</html>
