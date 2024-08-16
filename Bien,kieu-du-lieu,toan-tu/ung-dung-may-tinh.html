@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng máy tính</title>
+</head>
+<body>
+<form id="form">
+    <label><input id="a" type="number"></label>
+    <label><input id="b" type="number"></label>
+    <br>
+    <br>
+    <button type="button" id="ketqua+">Addition(+)</button>
+    <button type="button" id="ketqua-">Subtraction(-)</button>
+    <button type="button" id="ketqua*">Multiplication(X)</button>
+    <button type="button" id="ketqua/">Division(/)</button>
+</form>
+<p id="result"></p>
+</body>
+<script>
+    document.getElementById('ketqua+').onclick = function() {
+        let a = parseFloat(document.getElementById('a').value);
+        let b = parseFloat(document.getElementById('b').value);
+        let result = a + b;
+        document.getElementById('result').innerText = "Kết quả là: " + result;
+    }
+    document.getElementById('ketqua-').onclick = function() {
+        let a = parseFloat(document.getElementById('a').value);
+        let b = parseFloat(document.getElementById('b').value);
+        let result = a - b;
+        document.getElementById('result').innerText = "Kết quả là: " + result;
+    }
+    document.getElementById('ketqua*').onclick = function() {
+        let a = parseFloat(document.getElementById('a').value);
+        let b = parseFloat(document.getElementById('b').value);
+        let result = a * b;
+        document.getElementById('result').innerText = "Kết quả là: " + result;
+    }
+    document.getElementById('ketqua/').onclick = function() {
+        let a = parseFloat(document.getElementById('a').value);
+        let b = parseFloat(document.getElementById('b').value);
+        let result = a / b;
+        document.getElementById('result').innerText = "Kết quả là: " + result;
+    }
+</script>
+</html>
