@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+<form>
+  <table>
+    <tr>
+      <td>Amount</td>
+      <td>From Currency</td>
+      <td>To Currency</td>
+    </tr>
+    <tr>
+      <td><input type="number" id="amount"></td>
+      <td>
+        <select id="fromCurrency" name="fromCurrency">
+          <option value="VND">Việt Nam</option>
+          <option value="USD">Hoa Kỳ</option>
+        </select>
+      </td>
+      <td>
+        <select id="toCurrency" name="toCurrency">
+          <option value="USD">USD</option>
+          <option value="VND">VNĐ</option>
+        </select>
+      </td>
+      <td></td>
+      <td>
+        <button type="button" id="convert" style="background-color: blue;color: white">Convert</button>
+      </td>
+    </tr>
+    <tr>
+      <td><p id="result"></p></td>
+    </tr>
+  </table>
+</form>
+
+<script>
+  var conversionRates = {
+    "VND": {
+      "USD": 1 / 23000,
+      "VND": 1
+    },
+    "USD": {
+      "VND": 23000,
+      "USD": 1
+    }
+  };
+
+  document.getElementById('convert').onclick = function() {
+    let amount = parseFloat(document.getElementById('amount').value);
+    let fromCurrency = document.getElementById('fromCurrency').value;
+    let toCurrency = document.getElementById('toCurrency').value;
+    let result = amount * conversionRates[fromCurrency][toCurrency];
+    document.getElementById('result').innerText = 'Result: ' + result + ' ' + toCurrency;
+  }
+</script>
+
+</body>
+</html>
