@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng máy tính nâng cao</title>
+    <style>
+        /* CSS để làm đẹp giao diện máy tính */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #calculator {
+            display: inline-block;
+            text-align: left;
+        }
+        .row {
+            margin: 5px 0;
+        }
+        .button {
+            width: 50px;
+            height: 50px;
+            margin: 3px;
+            font-size: 20px;
+        }
+        #display {
+            width: 100%;
+            height: 50px;
+            font-size: 24px;
+            text-align: right;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="calculator">
+    <input id="display" type="text" readonly>
+    <div class="row">
+        <button class="button" onclick="clearDisplay()">AC</button>
+        <button class="button" onclick="deleteLast()">Del</button>
+        <button class="button" onclick="inputValue('%')">%</button>
+        <button class="button" onclick="inputValue('/')">÷</button>
+    </div>
+    <div class="row">
+        <button class="button" onclick="inputValue('7')">7</button>
+        <button class="button" onclick="inputValue('8')">8</button>
+        <button class="button" onclick="inputValue('9')">9</button>
+        <button class="button" onclick="inputValue('*')">×</button>
+    </div>
+    <div class="row">
+        <button class="button" onclick="inputValue('4')">4</button>
+        <button class="button" onclick="inputValue('5')">5</button>
+        <button class="button" onclick="inputValue('6')">6</button>
+        <button class="button" onclick="inputValue('-')">−</button>
+    </div>
+    <div class="row">
+        <button class="button" onclick="inputValue('1')">1</button>
+        <button class="button" onclick="inputValue('2')">2</button>
+        <button class="button" onclick="inputValue('3')">3</button>
+        <button class="button" onclick="inputValue('+')">+</button>
+    </div>
+    <div class="row">
+        <button class="button" onclick="inputValue('0')">0</button>
+        <button class="button" onclick="inputValue('.')">.</button>
+        <button class="button" onclick="calculate()">=</button>
+    </div>
+    <div class="row">
+        <button class="button" onclick="inputValue('Math.sin(')">sin</button>
+        <button class="button" onclick="inputValue('Math.cos(')">cos</button>
+        <button class="button" onclick="inputValue('Math.tan(')">tan</button>
+        <button class="button" onclick="inputValue('Math.sqrt(')">√</button>
+    </div>
+    <div class="row">
+        <button class="button" onclick="inputValue('Math.pow(')">x^y</button>
+        <button class="button" onclick="inputValue('Math.log(')">log</button>
+        <button class="button" onclick="inputValue('Math.exp(')">exp</button>
+    </div>
+</div>
+
+<script>
+    function inputValue(val) {
+        document.getElementById('display').value += val;
+    }
+
+    function calculate() {
+        let expression = document.getElementById('display').value;
+        try {
+            let result = eval(expression);
+            document.getElementById('display').value = result;
+        } catch (error) {
+            document.getElementById('display').value = "Error";
+        }
+    }
+
+    function clearDisplay() {
+        document.getElementById('display').value = '';
+    }
+
+    function deleteLast() {
+        let currentValue = document.getElementById('display').value;
+        document.getElementById('display').value = currentValue.slice(0, -1);
+    }
+</script>
+
+</body>
+</html>

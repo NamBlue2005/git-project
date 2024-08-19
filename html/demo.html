@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hiển thị đầu ra</title>
+    <title>Check Days in Month</title>
 </head>
 <body>
 <div id="messageDiv"></div>
 <script>
-   let diem = parseFloat(prompt("Nhập điểm :"));
-   let xeploai;
-   if (diem >= 75){
-       xeploai = "Loại A";
-   } else if (diem > 60){
-       xeploai = "Loại B";
-   } else if (diem >= 45){
-       xeploai = "Loại C";
-   } else if (diem >= 35){
-       xeploai = "Loại D";
-   } else {
-       xeploai = "Loại E"
-   }
-   alert("Xếp Loại: "+ xeploai)
+    let ngay = +(prompt("Nhập ngày:"));
+    let thang;
+
+    if (ngay === 31) {
+        thang = "Tháng 1, Tháng 3, Tháng 5, Tháng 7, Tháng 8, Tháng 10 và Tháng 12";
+    } else if (ngay === 30) {
+        thang = "Tháng 4, Tháng 6, Tháng 9, Tháng 11";
+    } else if (ngay === 28 || ngay === 29) {
+        thang = "Tháng 2";
+    } else {
+        thang = "Không có tháng nào có số ngày bạn nhập.";
+    }
+
+    alert(thang);
 </script>
 </body>
 </html>
