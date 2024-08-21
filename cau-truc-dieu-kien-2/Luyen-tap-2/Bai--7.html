@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 2</title>
+</head>
+<body>
+<script>
+    let a = prompt("Nhập hệ số a:");
+    let b = prompt("Nhập hệ số b:");
+    let c = prompt("Nhập hệ số c:");
+
+    if (a === 0) {
+        alert("Đây không phải là phương trình bậc 2.");
+    } else {
+        let D = b * b - 4 * a * c;
+
+        if (D > 0) {
+            let x1 = (-b + Math.sqrt(D)) / (2 * a);
+            let x2 = (-b - Math.sqrt(D)) / (2 * a);
+            alert("Phương trình có 2 nghiệm phân biệt:\n" + "x1 = " + x1 + "\nx2 = " + x2);
+        } else if (D === 0) {
+            let x = -b / (2 * a);
+            alert("Phương trình có 1 nghiệm duy nhất:\n" + "x = " + x);
+        } else {
+            alert("Phương trình vô nghiệm.");
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính lãi ngân hàng</title>
+</head>
+<body>
+<script>
+    let principal = prompt("Nhập số tiền ban đầu (VNĐ):");
+    let months = prompt("Nhập số tháng cho vay:");
+    let monthlyInterestRate = prompt("Nhập lãi suất hàng tháng (%):") / 100;
+
+    if (principal <= 0 || months <= 0 || monthlyInterestRate <= 0) {
+        alert("Thông tin nhập vào không hợp lệ. Vui lòng nhập lại.");
+    } else {
+        let totalAmount = principal;
+
+        for (let i = 0; i < months; i++) {
+            totalAmount += totalAmount * monthlyInterestRate;
+        }
+
+        let totalInterest = totalAmount - principal;
+
+        alert("Tổng số tiền sau " + months + " tháng là: " + totalAmount.toLocaleString() + " VNĐ");
+        alert("Tổng lãi nhận được là: " + totalInterest.toLocaleString() + " VNĐ");
+    }
+</script>
+</body>
+</html>

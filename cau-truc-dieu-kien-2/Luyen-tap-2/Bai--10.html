@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giá điện</title>
+</head>
+<body>
+<script>
+    let consumption = prompt("Nhập số điện tiêu thụ (kWh):");
+
+    if (consumption < 0) {
+        alert("Số điện tiêu thụ không hợp lệ. Vui lòng nhập lại.");
+    } else {
+        let totalCost = 0;
+
+        if (consumption <= 50) {
+            totalCost = consumption * 1500; // 1,500 VNĐ/kWh
+        } else if (consumption <= 100) {
+            totalCost = (50 * 1500) + ((consumption - 50) * 2000); // 2,000 VNĐ/kWh
+        } else if (consumption <= 200) {
+            totalCost = (50 * 1500) + (50 * 2000) + ((consumption - 100) * 2500); // 2,500 VNĐ/kWh
+        } else {
+            totalCost = (50 * 1500) + (50 * 2000) + (100 * 2500) + ((consumption - 200) * 3000); // 3,000 VNĐ/kWh
+        }
+
+        alert("Tổng giá điện phải trả là: " + totalCost.toLocaleString() + " VNĐ");
+    }
+</script>
+</body>
+</html>

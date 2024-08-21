@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 1</title>
+</head>
+<body>
+<script>
+    let a = prompt("Nhập hệ số a:");
+    let b = prompt("Nhập hệ số b:");
+
+    if (a === 0) {
+        if (b === 0) {
+            alert("Phương trình có vô số nghiệm.");
+        } else {
+            alert("Phương trình vô nghiệm.");
+        }
+    } else {
+        let x = -b / a;
+        alert("Nghiệm của phương trình " + a + "x + " + b + " = 0 là: x = " + x);
+    }
+</script>
+</body>
+</html>
