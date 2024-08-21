@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính cước điện thoại</title>
+</head>
+<body>
+<script>
+    let baseFee = prompt("Nhập giá cước cơ bản (VNĐ):");
+    let callMinutes = prompt("Nhập số phút gọi trong tháng:");
+    let freeMinutes = prompt("Nhập số phút miễn phí:");
+    let ratePerMinute = prompt("Nhập giá cước cho mỗi phút vượt (VNĐ):");
+
+    let messages = prompt("Nhập số tin nhắn trong tháng:");
+    let freeMessages = prompt("Nhập số tin nhắn miễn phí:");
+    let ratePerMessage = prompt("Nhập giá cước cho mỗi tin nhắn vượt (VNĐ):");
+//phí cuộc gọi
+    let callCharge = baseFee + Math.max(0, (callMinutes - freeMinutes)) * ratePerMinute;
+//phí tin nhắn
+    let messageCharge = Math.max(0, (messages - freeMessages)) * ratePerMessage;
+//tổng phí
+    let totalCharge = callCharge + messageCharge;
+
+    alert("Tổng cước điện thoại phải trả là: " + totalCharge + " VNĐ");
+</script>
+</body>
+</html>

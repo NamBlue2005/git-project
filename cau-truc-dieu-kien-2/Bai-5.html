@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<script>
+    let diemkiemtra = prompt("Nhập vào điểm bài kiểm tra:");
+    let diemthigiuaky = prompt("Nhập vào điểm thi giữa kỳ:");
+    let diemthicuoiky = prompt("Nhập vào điểm thi cuối kỳ:");
+
+    if (diemkiemtra < 0 || diemkiemtra > 10 || diemthigiuaky < 0 || diemthigiuaky > 10 || diemthicuoiky < 0 || diemthicuoiky > 10) {
+        alert("Vui lòng nhập lại điểm hợp lệ (0 - 10)");
+    } else {
+        let rank = (diemkiemtra + diemthigiuaky + diemthicuoiky) / 3;
+
+        if (rank >= 8) {
+            alert("Xếp loại giỏi: " + rank);
+        } else if (rank >= 7) {
+            alert("Xếp loại khá: " + rank);
+        } else if (rank >= 6.5) {
+            alert("Xếp loại trung bình: " + rank);
+        } else if (rank > 3.5) {
+            alert("Xếp loại yếu: " + rank);
+        } else {
+            alert("Xếp loại kém: " + rank);
+        }
+    }
+</script>
+</body>
+</html>
