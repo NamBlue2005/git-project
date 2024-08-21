@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chỉ số cân nặng</title>
+</head>
+<body style="text-align: center">
+<h1>Tính chỉ số cân nặng</h1>
+<b>Nhập cân nặng: (kg)</b> <input type="number" id="weight">
+<br><br>
+<b>Nhập chiều cao: (m)</b> <input type="number" id="height">
+<br><br>
+<button id="check">Kiểm tra</button>
+<br><br>
+<b id="bmi"></b>
+</body>
+<script>
+    document.getElementById('check').onclick = function () {
+        let weight = document.getElementById('weight').value;
+        let height = document.getElementById('height').value;
+
+        if (isNaN(weight) || isNaN(height) || height <= 0) {
+            document.getElementById('bmi').innerText = 'Vui lòng nhập đúng thông tin cân nặng và chiều cao!';
+            return;
+        }
+
+        let bmi = weight / (height * height);
+        let result = '';
+        let img = '';
+
+        if (bmi < 18.5) {
+            result = "Thiếu cân. Ăn thật nhiều vào nhé!";
+            img = '<img src="imgObj/3b97635b6bd4a5bfc436fbd3908f05e0.gif" alt="#" width="100px" height="100px">';
+        } else if (bmi < 24.9) {
+            result = "Bình thường";
+        } else if (bmi < 29.9) {
+            result = "Thừa cân. Luyện tập nhiều lên nha!";
+            img = '<img src="imgObj/3b97635b6bd4a5bfc436fbd3908f05e0.gif" alt="#" width="100px" height="100px">';
+        } else {
+            result = "Béo phì. Luyện tập nhiều lên nha!";
+            img = '<img src="imgObj/3b97635b6bd4a5bfc436fbd3908f05e0.gif" alt="#" width="100px" height="100px">';
+        }
+
+        document.getElementById('bmi').innerHTML = 'Chỉ số BMI là: ' + bmi + ' - ' + result + '<br>' + img;
+    }
+</script>
+</html>
