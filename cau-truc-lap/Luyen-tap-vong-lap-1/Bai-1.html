@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm từ 1 đến 100</title>
+</head>
+<body>
+<h2>Đếm từ 1 đến 100</h2>
+<div id="count"></div>
+</body>
+<script>
+    for (let i = 1; i <= 100; i++) {
+        document.getElementById("count").innerHTML += i + "<br>";
+
+        if (i === 99) {
+            alert("Đã hoàn thành đếm đến 99!");
+        }
+    }
+</script>
+</html>

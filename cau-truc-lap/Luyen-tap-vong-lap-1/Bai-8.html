@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chơi trò đoán số</title>
+</head>
+<body>
+<button id="click">Chơi</button>
+</body>
+<script>
+    document.getElementById("click").onclick = function () {
+        let number = +prompt("Số bạn muốn đoán trong khoảng lớn nhất là bao nhiêu?");
+        let number_ran = Math.floor(Math.random() * number);
+        let Input = +prompt("Nhập số bạn đoán:");
+        let count = 0;
+
+        while (Input !== number_ran) {
+            count++;
+            if (count === 3) {
+                alert("Bạn đã hết số lần đoán. Số đúng là " + number_ran);
+                break;
+            } else if (Input < number_ran) {
+                alert("Số bạn đoán bé hơn");
+            } else {
+                alert("Số bạn đoán lớn hơn");
+            }
+
+            Input = +prompt("Nhập số bạn đoán:");
+        }
+
+        if (Input === number_ran) {
+            alert("Bạn đã đoán đúng số. Chúc mừng bạn!");
+        }
+    }
+</script>
+</html>

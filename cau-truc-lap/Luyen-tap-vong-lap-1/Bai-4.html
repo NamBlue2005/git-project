@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Triangle Pattern</title>
+</head>
+<body>
+<script>
+    let a = 0;
+    let b = 1;
+    let result =false
+    while (!result) {
+        let c = a + b;
+        a = b;
+        b = c;
+        if (a % 5 == 0) {
+            alert("Số chia hết cho 5 là:" + a);
+            result = true
+        }
+    }
+</script>
+</body>
+</html>
