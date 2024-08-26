@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Hình Chữ Nhật</title>
+</head>
+<body>
+<h1>In Hình Chữ Nhật</h1>
+<pre id="rectangle"></pre>
+
+<script>
+    function inHinhChuNhat(chieuRong, chieuCao) {
+        let hinhChuNhat = '';
+
+        for (let i = 0; i < chieuCao; i++) {
+            if (i === 0 || i === chieuCao - 1) {
+                hinhChuNhat += '*'.repeat(chieuRong) + '\n';
+            } else {
+                hinhChuNhat += '*' + ' '.repeat(chieuRong - 2) + '*' + '\n';
+            }
+        }
+
+        document.getElementById('rectangle').textContent = hinhChuNhat;
+    }
+
+    inHinhChuNhat(21, 7);
+</script>
+</body>
+</html>

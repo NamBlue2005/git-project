@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lãi Kép</title>
+</head>
+<body>
+<script>
+    let money = +prompt("Nhập số tiền ban đầu:"); // Số tiền ban đầu
+    let month = +prompt("Nhập số tháng cho vay:"); // Số tháng cho vay
+    let monthly_interest = +prompt("Lãi suất hàng tháng (ví dụ: 0.05 cho 5%):"); // Lãi suất hàng tháng
+    let result;
+
+    if (money <= 0 || month <= 0 || monthly_interest < 0) {
+        alert("Vui lòng nhập lại. Các số liệu bạn đưa ra không hợp lệ.");
+    } else {
+
+        result = money * Math.pow((1 + monthly_interest), month);
+        alert("Số tiền sau " + month + " tháng là: " + result.toFixed(2)); // Hiển thị kết quả
+    }
+</script>
+</body>
+</html>
