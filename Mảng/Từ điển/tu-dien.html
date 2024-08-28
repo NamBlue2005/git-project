@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+<label for="inputt">Nhập từ: </label>
+<input type="text" id="inputt">
+<button id="click">Dịch</button>
+<p id="result"></p>
+<script>
+    document.getElementById('click').onclick = function() {
+        let arr_eng = ["apple", "banana", "cat", "dog", "book", "pen"];
+        let arr_vie = ["quả táo", "quả chuối", "con mèo", "con chó", "sách", "bút"];
+        let string = document.getElementById('inputt').value.toLowerCase();
+        let result = "";
+
+        for (let i = 0; i < arr_eng.length; i++) {
+            if (string === arr_eng[i]) {
+                result = arr_vie[i];
+                break;
+            }
+        }
+
+        if (result === "") {
+            result = "Không tìm thấy từ!";
+        }
+
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+</body>
+</html>
