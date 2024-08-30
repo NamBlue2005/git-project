@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic-Tac-Toe Game</title>
+</head>
+<body>
+<p id="message"></p>
+<script>
+    let arr = [];
+    let isX = true;
+
+    function initializeGame() {
+        arr = [];
+        isX = true;
+        for (let i = 0; i < 3; i++) {
+            arr[i] = [];
+            for (let j = 0; j < 3; j++) {
+                arr[i][j] = " ";
+            }
+        }
+        drawBoard();
+    }
+
+    function drawBoard() {
+        let board = "<table border='1' style='width: 300px; height: 300px'>";
+        for (let i = 0; i < 3; i++) {
+            board += "<tr>";
+            for (let j = 0; j < 3; j++) {
+                board += `<td onclick="changevalue(${i}, ${j})" style="width: 100px; height: 100px; text-align: center; font-size: 50px">${arr[i][j]}</td>`;
+            }
+            board += "</tr>";
+        }
+        board += "</table>";
+        document.body.innerHTML = board;
+    }
+
+    function changevalue(i, j) {
+        if (arr[i][j] === " ") {
+            arr[i][j] = isX ? "X" : "O";
+            isX = !isX;
+            drawBoard();
+            if (checkwin()) {
+                setTimeout(() => {
+                    alert(`${arr[i][j]} thắng!`);
+                    initializeGame();
+                }, 100);
+            } else if (isBoardFull()) {
+                setTimeout(() => {
+                    alert("Hòa!");
+                    initializeGame();
+                }, 100);
+            }
+        }
+    }
+
+    function checkwin() {
+        // Kiểm tra các hàng
+        for (let i = 0; i < 3; i++) {
+            if (arr[i][0] !== " " && arr[i][0] === arr[i][1] && arr[i][1] === arr[i][2]) {
+                return true;
+            }
+        }
+
+        // Kiểm tra các cột
+        for (let j = 0; j < 3; j++) {
+            if (arr[0][j] !== " " && arr[0][j] === arr[1][j] && arr[1][j] === arr[2][j]) {
+                return true;
+            }
+        }
+
+        // Kiểm tra các đường chéo
+        if (arr[0][0] !== " " && arr[0][0] === arr[1][1] && arr[1][1] === arr[2][2]) {
+            return true;
+        }
+
+        if (arr[0][2] !== " " && arr[0][2] === arr[1][1] && arr[1][1] === arr[2][0]) {
+            return true;
+        }
+
+        return false;
+    }
+
+    function isBoardFull() {
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (arr[i][j] === " ") {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    initializeGame();
+</script>
+</body>
+</html>
