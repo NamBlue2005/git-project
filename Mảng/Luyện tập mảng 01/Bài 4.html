@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<script>
+    function reverseArray(arr) {
+        let reversed = [];
+        for (let i = arr.length - 1; i >= 0; i--) {
+            reversed.push(arr[i]);
+        }
+        return reversed;
+    }
+
+    let array = [3, 15, 7, 12, 9, 20, 10, 6, 8, 14];
+
+    let reversedArray = reverseArray(array);
+
+    console.log("Mảng ban đầu: " + array);
+    console.log("Mảng sau khi đảo ngược: " + reversedArray);
+</script>
+</body>
+</html>

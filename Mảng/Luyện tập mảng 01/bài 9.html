@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<body>
+<script>
+    function concatenateArrays(arrayA, arrayB) {
+        let arrayC = [...arrayA, ...arrayB]; // Nối hai mảng
+        return arrayC;
+    }
+    
+    let arrayA = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let arrayB = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+    let arrayC = concatenateArrays(arrayA, arrayB);
+
+    console.log("Mảng c sau khi nối: " + arrayC);
+</script>
+</body>
+</html>

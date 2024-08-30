@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<script>
+    function countNegativeNumbers(str) {
+        let numbers = str.split(' ').map(Number);
+        let count = 0;
+        for (let num of numbers) {
+            if (num < 0) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+    let inputString = "3 -5 7 -2 9 -10 20";
+    let negativeCount = countNegativeNumbers(inputString);
+    console.log("Số lượng số nguyên âm trong chuỗi là: " + negativeCount);
+</script>
+</body>
+</html>

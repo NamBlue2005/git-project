@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [3, 15, 7, 12, 9, 20, 10, 6, 8, 14];
+
+    let max = array[0];
+
+    let sum = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+        }
+        sum += array[i];
+    }
+    let average = sum / array.length;
+
+    console.log("Phần tử có giá trị lớn nhất trong mảng là: " + max);
+    console.log("Giá trị trung bình của các phần tử trong mảng là: " + average);
+</script>
+</body>
+</html>

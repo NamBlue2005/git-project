@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+<script>
+    function replaceCharacter(array) {
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === '-') {
+                array[i] = '_';
+            }
+        }
+        return array;
+    }
+    let charArray = ['a', '-', 'b', '-', 'c', 'd', '-'];
+    let modifiedArray = replaceCharacter(charArray);
+    console.log("Mảng sau khi thay thế: " + modifiedArray.join(''));
+</script>
+</body>
+</html>
