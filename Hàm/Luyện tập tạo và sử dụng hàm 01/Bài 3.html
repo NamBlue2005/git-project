@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function with Two Parameters</title>
+</head>
+<body>
+<script>
+    function compareAndSum(param1, param2) {
+        if (param1 > param2) {
+            alert("Tham số thứ nhất lớn hơn tham số thứ hai.");
+        } else {
+            return param1 + param2;
+        }
+    }
+    let result = compareAndSum(3, 5);
+
+    if (result !== undefined) {
+        document.write("Tổng của hai tham số là: " + result);
+    }
+</script>
+</body>
+</html>

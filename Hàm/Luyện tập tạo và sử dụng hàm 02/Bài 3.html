@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+    function factorial(n) {
+        if (n < 0) return undefined; // Giai thừa không xác định cho số âm
+        if (n === 0 || n === 1) return 1; // Giai thừa của 0 và 1 là 1
+        let result = 1;
+        for (let i = 2; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    let number = 5; // Ví dụ
+    console.log("Giai thừa của " + number + " là: " + factorial(number));
+</script>
+</body>
+</html>

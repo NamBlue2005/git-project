@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<body>
+<script>
+    function countCharacter(arr, char) {
+        let count = arr.filter(c => c === char).length; // Đếm số lần xuất hiện
+        return count > 0 ? count : -1; // Nếu có, trả về số lần xuất hiện, nếu không trả về -1
+    }
+
+    let charArray = ['a', 'b', 'c', 'a', 'd', 'a']; // Ví dụ
+    let characterToCheck = 'a';
+    console.log("Số lần xuất hiện của ký tự '" + characterToCheck + "': " + countCharacter(charArray, characterToCheck));
+</script>
+</body>
+</html>
