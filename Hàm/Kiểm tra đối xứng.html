@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm Tra Palindrome</title>
+</head>
+<body>
+
+<h1>Kiểm Tra Chuỗi Palindrome</h1>
+
+<input type="text" id="inputString" placeholder="Nhập chuỗi cần kiểm tra" required>
+<button onclick="checkPalindrome()">Kiểm Tra</button>
+
+<p id="result"></p>
+
+<script>
+    function isPalindrome(s) {
+        // Bỏ qua ký tự không phải chữ (nếu cần) và chuyển về chữ thường
+        s = s.replace(/[^a-zA-Z]/g, "").toLowerCase();
+
+        // Nếu chuỗi rỗng hoặc chỉ có một ký tự thì là palindrome
+        if (s.length <= 1) {
+            return true;
+        }
+
+        // Kiểm tra ký tự đầu và cuối
+        if (s.charAt(0) !== s.charAt(s.length - 1)) {
+            return false;
+        }
+
+        // Gọi đệ quy với chuỗi đã loại bỏ ký tự đầu và cuối
+        return isPalindrome(s.slice(1, s.length - 1));
+    }
+
+    function checkPalindrome() {
+        const input = document.getElementById('inputString').value;
+        const resultElement = document.getElementById('result');
+
+        if (isPalindrome(input)) {
+            resultElement.innerText = `"${input}" là chuỗi palindrome.`;
+        } else {
+            resultElement.innerText = `"${input}" không phải là chuỗi palindrome.`;
+        }
+    }
+</script>
+
+</body>
+</html>

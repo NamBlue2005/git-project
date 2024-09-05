@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản Lý Sản Phẩm</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        td {
+            background-color:#f4f4f4;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        button{
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Danh Sách Sản Phẩm</h1>
+
+<!-- Form thêm sản phẩm -->
+<form id="addProductForm">
+    <input type="text" id="productName" placeholder="Nhập tên sản phẩm" required>
+    <button type="submit">Thêm</button>
+</form>
+
+<!-- Form sửa sản phẩm -->
+<form id="editProductForm" style="margin-top: 20px;">
+    <input type="text" id="editProductName" placeholder="Sửa tên sản phẩm" required>
+    <button type="button" id="saveEditButton">Sửa</button>
+</form>
+
+<!-- Bảng hiển thị danh sách sản phẩm -->
+<table id="productTable">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Tên Sản Phẩm</th>
+        <th>Thao Tác</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Danh sách sản phẩm sẽ được thêm vào đây -->
+    </tbody>
+</table>
+
+<script>
+    let products = []; // Mảng chứa danh sách sản phẩm
+
+    // Hàm hiển thị danh sách sản phẩm
+    function displayProducts() {
+        const productTableBody = document.getElementById('productTable').getElementsByTagName('tbody')[0];
+        productTableBody.innerHTML = ''; // Xoá nội dung cũ
+
+        products.forEach((product, index) => {
+            const row = productTableBody.insertRow();
+            row.insertCell(0).innerText = index + 1; // STT
+            row.insertCell(1).innerText = product; // Tên sản phẩm
+
+            // Cột thao tác
+            const actionsCell = row.insertCell(2);
+            const deleteButton = document.createElement('button');
+            deleteButton.innerText = 'Xoá';
+            deleteButton.onclick = () => deleteProduct(index); // Gọi hàm xoá
+            actionsCell.appendChild(deleteButton);
+
+            // Sửa sản phẩm khi nhấn vào tên sản phẩm
+            row.cells[1].onclick = () => editProduct(index);
+        });
+    }
+
+    // Hàm thêm sản phẩm
+    document.getElementById('addProductForm').onsubmit = function(event) {
+        event.preventDefault(); // Ngăn chặn gửi form
+        const productName = document.getElementById('productName').value;
+        products.push(productName); // Thêm sản phẩm vào mảng
+        document.getElementById('productName').value = ''; // Làm rỗng ô nhập
+        displayProducts(); // Hiển thị lại danh sách
+        alert("Thêm sản phẩm thành công!");
+    };
+
+    // Hàm sửa sản phẩm
+    let currentEditIndex = null;
+
+    function editProduct(index) {
+        currentEditIndex = index;
+        document.getElementById('editProductName').value = products[index]; // Hiển thị tên sản phẩm trong ô sửa
+    }
+
+    document.getElementById('saveEditButton').onclick = function() {
+        if (currentEditIndex !== null) {
+            const updatedName = document.getElementById('editProductName').value;
+            products[currentEditIndex] = updatedName; // Cập nhật tên sản phẩm
+            displayProducts(); // Hiển thị lại danh sách
+            alert("Sửa sản phẩm thành công!");
+            currentEditIndex = null; // Đặt lại chỉ số hiện tại
+            document.getElementById('editProductName').value = ''; // Làm rỗng ô sửa
+        }
+    };
+
+    // Hàm xoá sản phẩm
+    function deleteProduct(index) {
+        products.splice(index, 1); // Xoá sản phẩm theo chỉ số
+        displayProducts(); // Hiển thị lại danh sách
+        alert("Xoá sản phẩm thành công!");
+    }
+
+    // Gọi hàm hiển thị danh sách sản phẩm
+    displayProducts(); // Hiển thị danh sách sản phẩm ban đầu (rỗng)
+</script>
+
+</body>
+</html>

@@ -5,26 +5,53 @@
     <title>Bài 4</title>
 </head>
 <body>
+
 </body>
 <script>
-    let a = Number(prompt("Nhập a:"));
-    let b = Number(prompt("Nhập b:"));
-    let c = Number(prompt("Nhập c:"));
-    let max = a;
+    function  max1( ){
+        let a = prompt("Nhập a: ");
+        let b = prompt("Nhập b: ");
+        let c = prompt("Nhập c: ");
+        let max = a;
 
-    if (b > max) {
-        max = b;
+        if ( b > max){
+            max = b;
+        }
+        if ( c > max ){
+            max = c;
+        }
+        if ( max === a){
+            alert(" a là số lớn nhất:"+a);
+        } else if (max === b){
+            alert(" b là số lớn nhất: "+b);
+        } else {
+            alert(" c là số lớn nhất: "+c);
+        }
     }
-    if (c > max) {
-        max = c;
-    }
+    max1( )
 
-    if (max === a) {
-        alert("a là số lớn nhất: "+a);
-    } else if (max === b) {
-        alert("b là số lớn nhất: "+b);
-    } else {
-        alert("c là số lớn nhất: "+c);
-    }
+    // function findMaxNumber( ) {
+    //     let a = Number(prompt("Nhập a:"));
+    //     let b = Number(prompt("Nhập b:"));
+    //     let c = Number(prompt("Nhập c:"));
+    //     let max = a;
+    //
+    //     if (b > max) {
+    //         max = b;
+    //     }
+    //     if (c > max) {
+    //         max = c;
+    //     }
+    //
+    //     if (max === a) {
+    //         alert("a là số lớn nhất: " + a);
+    //     } else if (max === b) {
+    //         alert("b là số lớn nhất: " + b);
+    //     } else {
+    //         alert("c là số lớn nhất: " + c);
+    //     }
+    // }
+    //
+    // findMaxNumber( );
 </script>
 </html>
