@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Movement</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        #gameCanvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="gameCanvas" width="800" height="600"></canvas>
+
+<script>
+    class Hero {
+        constructor(imageUrl, x, y, speed) {
+            this.image = new Image();
+            this.image.src = imageUrl;  // Đường dẫn đến ảnh nhân vật
+            this.x = x;  // Vị trí theo trục x
+            this.y = y;  // Vị trí theo trục y
+            this.speed = speed;  // Tốc độ di chuyển
+        }
+
+        draw(context) {
+            context.drawImage(this.image, this.x, this.y, 50, 50);  // Vẽ nhân vật
+        }
+
+        moveLeft() {
+            this.x -= this.speed;
+        }
+
+        moveRight() {
+            this.x += this.speed;
+        }
+
+        moveUp() {
+            this.y -= this.speed;
+        }
+
+        moveDown() {
+            this.y += this.speed;
+        }
+    }
+
+    const canvas = document.getElementById('gameCanvas');
+    const context = canvas.getContext('2d');
+
+    const hero = new Hero('https://github.com/codegym-vn/objects/blob/master/pikachu.png?raw=true', 100, 100, 20);
+
+    function update() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        hero.draw(context);  // Vẽ nhân vật
+        requestAnimationFrame(update);
+    }
+
+    // Xử lý các sự kiện phím để di chuyển nhân vật
+    window.addEventListener('keydown', function(event) {
+        switch(event.key) {
+            case 'ArrowLeft':
+                hero.moveLeft();
+                break;
+            case 'ArrowRight':
+                hero.moveRight();
+                break;
+            case 'ArrowUp':
+                hero.moveUp();
+                break;
+            case 'ArrowDown':
+                hero.moveDown();
+                break;
+        }
+    });
+
+    update();
+</script>
+
+</body>
+</html>
