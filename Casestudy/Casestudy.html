@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Học Sinh</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Quản Lý Bảng Điểm Học Sinh Lớp 12</h1>
+
+<div style="text-align: center; margin-bottom: 20px;">
+    <input type="text" id="searchInput" placeholder="Tìm kiếm học sinh theo tên..." style="padding: 10px; width: 300px; border-radius: 5px; border: 1px solid #ddd;">
+</div>
+
+<form id="addStudentForm">
+    <input type="text" id="studentName" placeholder="Nhập tên học sinh" required>
+    <input type="date" id="studentYear" placeholder="Năm sinh" required>
+
+    <div style="width: 100%; margin: 8px;">
+        <label for="gender">Giới tính:</label>
+        <select id="gender" required>
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+            <option value="Khác">Khác</option>
+        </select>
+    </div>
+
+    <input type="number" id="giuHocKy1" placeholder="Giữa học kỳ 1" step="0.01" min="0" max="10" required>
+    <input type="number" id="hocKy1" placeholder="Học kỳ 1" step="0.01" min="0" max="10" required>
+    <input type="number" id="giuHocKy2" placeholder="Giữa học kỳ 2" step="0.01" min="0" max="10" required>
+    <input type="number" id="hocKy2" placeholder="Học kỳ 2" step="0.01" min="0" max="10" required>
+
+    <div style="width: 100%; margin: 8px;">
+        <label for="hanhKiem">Hạnh kiểm:</label>
+        <select id="hanhKiem" required>
+            <option value="Tốt">Tốt</option>
+            <option value="Khá">Khá</option>
+            <option value="Trung Bình">Trung Bình</option>
+            <option value="Yếu">Yếu</option>
+            <option value="Kém">Kém</option>
+        </select>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit">Thêm Học Sinh</button>
+    </div>
+</form>
+
+<table id="studentTable">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Họ Tên</th>
+        <th>Năm Sinh</th>
+        <th>Giới Tính</th>
+        <th>Giữa Học Kỳ 1</th>
+        <th>Học Kỳ 1</th>
+        <th>Giữa Học Kỳ 2</th>
+        <th>Học Kỳ 2</th>
+        <th>Tổng Điểm</th>
+        <th>Điểm Trung Bình</th>
+        <th>Hạnh Kiểm</th>
+        <th>Học Lực</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script src="scrip.js"></script>
+</body>
+</html>
